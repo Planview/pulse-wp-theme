@@ -9,6 +9,7 @@
 		<h1 class="entry-title"><?php the_title(); ?></h1>
 
 		<div class="entry-meta">
+            <?php product_pulse_author_thumb('pull-left'); ?>
 			<?php product_pulse_posted_on(); ?>
 		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->

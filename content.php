@@ -8,8 +8,16 @@
 	<header class="entry-header">
 		<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 
+
+        <div class="entry-actions">
+            <?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
+                <span class="comments-link"><?php comments_popup_link( __( '<span class="glyphicon glyphicon-comment"></span> 0', 'product-pulse' ), __( '<span class="glyphicon glyphicon-comment"></span> 1', 'product-pulse' ), __( '<span class="glyphicon glyphicon-comment"></span> %', 'product-pulse' ) ); ?></span>
+            <?php endif; ?>
+            <a class="addthis_button_compact label label-warning" addthis:url="<?php the_permalink(); ?>" addthis:title="<?php echo esc_attr(get_the_title()); ?>"><span class=""><span class="glyphicon glyphicon-plus"></span> Share</span></a>
+        </div>
 		<?php if ( 'post' == get_post_type() ) : ?>
 		<div class="entry-meta">
+            <?php product_pulse_author_thumb('pull-left'); ?>
 			<?php product_pulse_posted_on(); ?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
@@ -54,9 +62,6 @@
 			<?php endif; // End if $tags_list ?>
 		<?php endif; // End if 'post' == get_post_type() ?>
 
-		<?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
-		<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'product-pulse' ), __( '1 Comment', 'product-pulse' ), __( '% Comments', 'product-pulse' ) ); ?></span>
-		<?php endif; ?>
 
 		<?php edit_post_link( __( 'Edit', 'product-pulse' ), '<span class="edit-link">', '</span>' ); ?>
 	</footer><!-- .entry-meta -->

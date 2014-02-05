@@ -1,0 +1,134 @@
+@import "variables";
+@import "../vendor/bootstrap-sass/stylesheets/bootstrap";
+
+
+.screen-reader-text {
+  @extend .sr-only;
+}
+
+// Site Header
+.site-header {
+  background-color: black;
+  color: white;
+  padding-top: 40px;
+}
+.site-header-inner {
+  @extend .container;
+}
+.site-branding {
+  @extend .row;
+}
+.site-title, .site-description {
+  @extend .col-sm-6;
+}
+.site-description {
+  @media screen and (min-width: $screen-sm-min) {
+    padding-top: 2.8%;
+  }
+}
+
+
+// Site Body
+.site-content-wrapper {
+  @extend .container;
+  background-color: white;
+}
+.site-content {
+  @extend .row;
+  overflow: hidden;
+}
+.content-area {
+  @extend .col-md-9;
+}
+.sidebar-wrapper {
+  @extend .col-md-3;
+  @include box-shadow(2px -100px 10px $gray-light inset);
+  @media screen and (min-width: $screen-md-min) {
+    margin-bottom: -9999px;
+    padding-bottom: 9999px;
+  }
+}
+.widget-area {
+  padding: 20px 10px;
+  .widget-title {
+    @extend .page-header;
+  }
+  .FeedburnerEmailWidget, .search-form {
+    .form-inner {
+      @extend .input-group;
+    }
+    .submit {
+      @extend .input-group-btn;
+      button {
+        @extend .btn;
+      }
+    }
+    input[type="text"], input[type="search"] {
+      @extend .form-control;
+    }
+  }
+  .FeedburnerEmailWidget .submit button {
+    @extend .btn-success;
+  }
+  .search-form .submit button {
+    @extend .btn-primary;
+  }
+  .widget_authors ul {
+    @extend .media-list;
+    li {
+      @extend .media;
+      img {
+        @extend .media-object, .pull-left;
+      }
+      a {
+        @extend .media-body;
+      }
+    }
+  }
+}
+
+
+//  Site Footer
+.site-footer {
+  background-color: #000000;
+  color: white;
+  padding: 20px 0 0 0;
+}
+.footer-inner {
+  @extend .container;
+}
+.site-info {
+  @extend .row;
+}
+.blog-links {
+  @extend .col-sm-6;
+  ul {
+    @extend .list-unstyled;
+  }
+}
+.planview-brand {
+  text-align: right;
+  padding-top: 4%;
+  @extend .col-sm-6;
+}
+
+//  Posts
+.entry-header {
+  @extend .page-header;
+  .entry-meta {
+    @extend .media;
+    img.avatar {
+      @extend .media-body
+    }
+    p.meta-text {
+      @extend .media-body;
+    }
+  }
+}
+
+.entry-actions {
+  @extend .pull-right;
+  .comments-link a {
+    @extend .label, .label-primary;
+  }
+}
