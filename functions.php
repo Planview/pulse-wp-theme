@@ -9,7 +9,7 @@
  * Set the content width based on the theme's design and stylesheet.
  */
 if ( ! isset( $content_width ) ) {
-	$content_width = 640; /* pixels */
+	$content_width = 848; /* pixels */
 }
 
 if ( ! function_exists( 'product_pulse_setup' ) ) :
@@ -46,13 +46,13 @@ function product_pulse_setup() {
 	) );
 
 	// Enable support for Post Formats.
-	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
+	// add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
 
 	// Setup the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'product_pulse_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	) ) );
+//	add_theme_support( 'custom-background', apply_filters( 'product_pulse_custom_background_args', array(
+//		'default-color' => 'ffffff',
+//		'default-image' => '',
+//	) ) );
 }
 endif; // product_pulse_setup
 add_action( 'after_setup_theme', 'product_pulse_setup' );
