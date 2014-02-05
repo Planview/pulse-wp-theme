@@ -54,12 +54,12 @@ function product_pulse_post_nav() {
 	?>
 	<nav class="navigation post-navigation" role="navigation">
 		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'product-pulse' ); ?></h1>
-		<div class="nav-links">
+		<ul class="nav-links">
 
-			<?php previous_post_link( '%link', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'product-pulse' ) ); ?>
-			<?php next_post_link(     '%link', _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link',     'product-pulse' ) ); ?>
+            <li class="nav-previous"><?php previous_post_link( '%link', _x( '<span class="meta-nav"></span> %title', 'Previous post link', 'product-pulse' ) ); ?></li>
+            <li class="nav-next"><?php next_post_link(     '%link', _x( '%title <span class="meta-nav"></span>', 'Next post link',     'product-pulse' ) ); ?></li>
 
-		</div><!-- .nav-links -->
+		</ul><!-- .nav-links -->
 	</nav><!-- .navigation -->
 	<?php
 }
@@ -87,8 +87,7 @@ function product_pulse_comment( $comment, $args, $depth ) {
 		<article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
 			<footer class="comment-meta">
 				<div class="comment-author vcard">
-					<?php if ( 0 != $args['avatar_size'] ) { echo get_avatar( $comment, $args['avatar_size'] ); } ?>
-					<?php printf( __( '%s <span class="says">says:</span>', 'product-pulse' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
+					<h4><?php printf( '<cite class="fn">%s</cite>', get_comment_author() ); ?></h4>
 				</div><!-- .comment-author -->
 
 				<div class="comment-metadata">
@@ -131,9 +130,6 @@ if ( ! function_exists( 'product_pulse_posted_on' ) ) :
      */
     function product_pulse_posted_on() {
         $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
-        if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-            $time_string .= '<time class="updated" datetime="%3$s">%4$s</time>';
-        }
 
         $time_string = sprintf( $time_string,
             esc_attr( get_the_date( 'c' ) ),
