@@ -35,18 +35,12 @@
 }
 .site-content {
   @extend .row;
-  overflow: hidden;
 }
 .content-area {
   @extend .col-md-9;
 }
 .sidebar-wrapper {
   @extend .col-md-3;
-  @media screen and (min-width: $screen-md-min) {
-    @include box-shadow(2px -100px 10px $gray-light inset);
-    margin-bottom: -9999px;
-    padding-bottom: 9999px;
-  }
 }
 .widget-area {
   padding: 20px 10px;
@@ -145,7 +139,7 @@
 
 
 //  Paging
-.paging-navigation {
+.paging-navigation, .post-navigation {
   ul.nav-links {
     @extend .pager;
     .nav-previous {
