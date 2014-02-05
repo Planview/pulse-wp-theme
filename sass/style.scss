@@ -142,3 +142,19 @@
     @extend .label, .label-primary;
   }
 }
+
+
+//  Paging
+.paging-navigation {
+  ul.nav-links {
+    @extend .pager;
+    .nav-previous {
+      @extend .previous;
+      .meta-nav {@extend .glyphicon, .glyphicon-chevron-left;}
+    }
+    .nav-next {
+      @extend .next;
+      .meta-nav {@extend .glyphicon, .glyphicon-chevron-right;}
+    }
+  }
+}

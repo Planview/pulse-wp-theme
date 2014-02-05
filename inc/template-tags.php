@@ -21,17 +21,17 @@ function product_pulse_paging_nav() {
 	?>
 	<nav class="navigation paging-navigation" role="navigation">
 		<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'product-pulse' ); ?></h1>
-		<div class="nav-links">
+		<ul class="nav-links">
 
 			<?php if ( get_next_posts_link() ) : ?>
-			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'product-pulse' ) ); ?></div>
+			<li class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav"></span> Older posts', 'product-pulse' ) ); ?></li>
 			<?php endif; ?>
 
 			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'product-pulse' ) ); ?></div>
+			<li class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav"></span>', 'product-pulse' ) ); ?></li>
 			<?php endif; ?>
 
-		</div><!-- .nav-links -->
+		</ul><!-- .nav-links -->
 	</nav><!-- .navigation -->
 	<?php
 }
