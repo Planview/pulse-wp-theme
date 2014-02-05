@@ -42,8 +42,8 @@
 }
 .sidebar-wrapper {
   @extend .col-md-3;
-  @include box-shadow(2px -100px 10px $gray-light inset);
   @media screen and (min-width: $screen-md-min) {
+    @include box-shadow(2px -100px 10px $gray-light inset);
     margin-bottom: -9999px;
     padding-bottom: 9999px;
   }
@@ -85,6 +85,13 @@
       }
     }
   }
+  .widget_categories ul {
+    @extend .list-unstyled;
+  }
+  .image-ads {
+    padding-top: 20px;
+    img { @extend .img-responsive; margin: 10px auto; }
+  }
 }
 
 
@@ -122,6 +129,9 @@
     }
     p.meta-text {
       @extend .media-body;
+    }
+    .updated {
+      @extend .hidden;
     }
   }
 }
