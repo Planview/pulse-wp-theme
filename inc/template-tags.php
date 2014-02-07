@@ -133,9 +133,7 @@ if ( ! function_exists( 'product_pulse_posted_on' ) ) :
 
         $time_string = sprintf( $time_string,
             esc_attr( get_the_date( 'c' ) ),
-            esc_html( get_the_date() ),
-            esc_attr( get_the_modified_date( 'c' ) ),
-            esc_html( get_the_modified_date() )
+            esc_html( get_the_date() )
         );
 
         printf( __( '<p class="meta-text"><span class="byline">By %2$s</span><span class="separator"> / </span><span class="posted-on">%1$s</span></p>', 'product-pulse' ),

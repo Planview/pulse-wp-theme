@@ -1,6 +1,12 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:700italic,700);
+
 @import "variables";
 @import "../vendor/bootstrap-sass/stylesheets/bootstrap";
 
+label {
+  font-family: $headings-font-family;
+  color: $gray;
+}
 
 .screen-reader-text {
   @extend .sr-only;
@@ -11,6 +17,12 @@
   background-color: black;
   color: white;
   padding-top: 40px;
+  @media screen and (min-width: $screen-sm-min) {
+    position: absolute;
+    width: 100%;
+    height: 140px;
+    z-index: $zindex-navbar-fixed;
+  }
 }
 .site-header-inner {
   @extend .container;
@@ -22,6 +34,7 @@
   @extend .col-sm-6;
 }
 .site-description {
+  color: inherit;
   @media screen and (min-width: $screen-sm-min) {
     padding-top: 2.8%;
   }
@@ -32,18 +45,22 @@
 .site-content-wrapper {
   @extend .container;
   background-color: white;
+  @media screen and (min-width: $screen-sm-min) {
+    padding-top: 140px;
+  }
 }
 .site-content {
   @extend .row;
+  padding-top: 10px;
 }
 .content-area {
   @extend .col-md-9;
 }
 .sidebar-wrapper {
+  border-left: 1px solid $gray-lighter;
   @extend .col-md-3;
 }
 .widget-area {
-  padding: 20px 10px;
   .widget-title {
     @extend .page-header;
   }
@@ -84,7 +101,9 @@
   }
   .image-ads {
     padding-top: 20px;
-    img { @extend .img-responsive; margin: 10px auto; }
+    @extend .row;
+    .ad { @extend .col-xs-6, .col-md-12; }
+    img { @include img-responsive(); margin-top: 10px; @include center-block(); }
   }
 }
 

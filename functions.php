@@ -76,7 +76,7 @@ add_action( 'widgets_init', 'product_pulse_widgets_init' );
  * Enqueue scripts and styles.
  */
 function product_pulse_scripts() {
-    if ( is_admin() ) wp_enqueue_style( 'product-pulse-style', get_stylesheet_uri() );
+    if ( is_admin() ) wp_enqueue_style( 'product-pulse', get_stylesheet_uri() );
 
     if ( !is_admin() ) wp_enqueue_style( 'product-pulse-style', get_stylesheet_directory_uri() . '/css/style.css' );
 

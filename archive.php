@@ -93,6 +93,9 @@ get_header(); ?>
                     <?php echo get_avatar($pulse_archive_author, 150, '', get_the_author_meta('display_name')) ?>
                 </div>
                 <?php the_field('user_bio', "user_{$pulse_archive_author}"); ?>
+                <?php if ($user_twitter = get_field('user_twitter', "user_{$pulse_archive_author}")) : ?>
+                    <p class="twitter"><a href="http://twitter.com/<?php echo $user_twitter; ?>">@<?php echo $user_twitter ?></a></p>
+                    <?php endif; ?>
             </div>
             <?php endif; ?>
 
