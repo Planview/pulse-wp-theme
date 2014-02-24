@@ -286,7 +286,7 @@ table {
     border-top-color: #000 !important;
   }
 
-  .label, .entry-actions .comments-link a, .comments-area .comment-edit-link, .comments-area .comment-reply-link {
+  .label, .entry-actions .comments-link a, footer.entry-meta .edit-link a, footer.entry-meta .cat-links a, footer.entry-meta .tags-links a, .comments-area .comment-edit-link, .comments-area .comment-reply-link {
     border: 1px solid #000;
   }
 
@@ -5033,7 +5033,7 @@ input[type="button"].btn-block {
   cursor: not-allowed;
 }
 
-.label, .entry-actions .comments-link a, .comments-area .comment-edit-link, .comments-area .comment-reply-link {
+.label, .entry-actions .comments-link a, footer.entry-meta .edit-link a, footer.entry-meta .cat-links a, footer.entry-meta .tags-links a, .comments-area .comment-edit-link, .comments-area .comment-reply-link {
   display: inline;
   padding: .2em .6em .3em;
   font-size: 75%;
@@ -5045,23 +5045,23 @@ input[type="button"].btn-block {
   vertical-align: baseline;
   border-radius: .25em;
 }
-.label[href]:hover, .entry-actions .comments-link a[href]:hover, .comments-area [href].comment-edit-link:hover, .comments-area [href].comment-reply-link:hover, .label[href]:focus, .entry-actions .comments-link a[href]:focus, .comments-area [href].comment-edit-link:focus, .comments-area [href].comment-reply-link:focus {
+.label[href]:hover, .entry-actions .comments-link a[href]:hover, footer.entry-meta .edit-link a[href]:hover, footer.entry-meta .cat-links a[href]:hover, footer.entry-meta .tags-links a[href]:hover, .comments-area [href].comment-edit-link:hover, .comments-area [href].comment-reply-link:hover, .label[href]:focus, .entry-actions .comments-link a[href]:focus, footer.entry-meta .edit-link a[href]:focus, footer.entry-meta .cat-links a[href]:focus, footer.entry-meta .tags-links a[href]:focus, .comments-area [href].comment-edit-link:focus, .comments-area [href].comment-reply-link:focus {
   color: white;
   text-decoration: none;
   cursor: pointer;
 }
-.label:empty, .entry-actions .comments-link a:empty, .comments-area .comment-edit-link:empty, .comments-area .comment-reply-link:empty {
+.label:empty, .entry-actions .comments-link a:empty, footer.entry-meta .edit-link a:empty, footer.entry-meta .cat-links a:empty, footer.entry-meta .tags-links a:empty, .comments-area .comment-edit-link:empty, .comments-area .comment-reply-link:empty {
   display: none;
 }
-.btn .label, .widget-area .FeedburnerEmailWidget .submit button .label, .widget-area .search-form .submit button .label, #commentsubmit .label, .btn .entry-actions .comments-link a, .entry-actions .comments-link .btn a, .widget-area .FeedburnerEmailWidget .submit button .entry-actions .comments-link a, .entry-actions .comments-link .widget-area .FeedburnerEmailWidget .submit button a, .widget-area .search-form .submit button .entry-actions .comments-link a, .entry-actions .comments-link .widget-area .search-form .submit button a, #commentsubmit .entry-actions .comments-link a, .entry-actions .comments-link #commentsubmit a, .btn .comments-area .comment-edit-link, .comments-area .btn .comment-edit-link, .widget-area .FeedburnerEmailWidget .submit button .comments-area .comment-edit-link, .comments-area .widget-area .FeedburnerEmailWidget .submit button .comment-edit-link, .widget-area .search-form .submit button .comments-area .comment-edit-link, .comments-area .widget-area .search-form .submit button .comment-edit-link, #commentsubmit .comments-area .comment-edit-link, .comments-area #commentsubmit .comment-edit-link, .btn .comments-area .comment-reply-link, .comments-area .btn .comment-reply-link, .widget-area .FeedburnerEmailWidget .submit button .comments-area .comment-reply-link, .comments-area .widget-area .FeedburnerEmailWidget .submit button .comment-reply-link, .widget-area .search-form .submit button .comments-area .comment-reply-link, .comments-area .widget-area .search-form .submit button .comment-reply-link, #commentsubmit .comments-area .comment-reply-link, .comments-area #commentsubmit .comment-reply-link {
+.btn .label, .widget-area .FeedburnerEmailWidget .submit button .label, .widget-area .search-form .submit button .label, #commentsubmit .label, .btn .entry-actions .comments-link a, .entry-actions .comments-link .btn a, .widget-area .FeedburnerEmailWidget .submit button .entry-actions .comments-link a, .entry-actions .comments-link .widget-area .FeedburnerEmailWidget .submit button a, .widget-area .search-form .submit button .entry-actions .comments-link a, .entry-actions .comments-link .widget-area .search-form .submit button a, #commentsubmit .entry-actions .comments-link a, .entry-actions .comments-link #commentsubmit a, .btn footer.entry-meta .edit-link a, footer.entry-meta .edit-link .btn a, .widget-area .FeedburnerEmailWidget .submit button footer.entry-meta .edit-link a, footer.entry-meta .edit-link .widget-area .FeedburnerEmailWidget .submit button a, .widget-area .search-form .submit button footer.entry-meta .edit-link a, footer.entry-meta .edit-link .widget-area .search-form .submit button a, #commentsubmit footer.entry-meta .edit-link a, footer.entry-meta .edit-link #commentsubmit a, .btn footer.entry-meta .cat-links a, footer.entry-meta .cat-links .btn a, .widget-area .FeedburnerEmailWidget .submit button footer.entry-meta .cat-links a, footer.entry-meta .cat-links .widget-area .FeedburnerEmailWidget .submit button a, .widget-area .search-form .submit button footer.entry-meta .cat-links a, footer.entry-meta .cat-links .widget-area .search-form .submit button a, #commentsubmit footer.entry-meta .cat-links a, footer.entry-meta .cat-links #commentsubmit a, .btn footer.entry-meta .tags-links a, footer.entry-meta .tags-links .btn a, .widget-area .FeedburnerEmailWidget .submit button footer.entry-meta .tags-links a, footer.entry-meta .tags-links .widget-area .FeedburnerEmailWidget .submit button a, .widget-area .search-form .submit button footer.entry-meta .tags-links a, footer.entry-meta .tags-links .widget-area .search-form .submit button a, #commentsubmit footer.entry-meta .tags-links a, footer.entry-meta .tags-links #commentsubmit a, .btn .comments-area .comment-edit-link, .comments-area .btn .comment-edit-link, .widget-area .FeedburnerEmailWidget .submit button .comments-area .comment-edit-link, .comments-area .widget-area .FeedburnerEmailWidget .submit button .comment-edit-link, .widget-area .search-form .submit button .comments-area .comment-edit-link, .comments-area .widget-area .search-form .submit button .comment-edit-link, #commentsubmit .comments-area .comment-edit-link, .comments-area #commentsubmit .comment-edit-link, .btn .comments-area .comment-reply-link, .comments-area .btn .comment-reply-link, .widget-area .FeedburnerEmailWidget .submit button .comments-area .comment-reply-link, .comments-area .widget-area .FeedburnerEmailWidget .submit button .comment-reply-link, .widget-area .search-form .submit button .comments-area .comment-reply-link, .comments-area .widget-area .search-form .submit button .comment-reply-link, #commentsubmit .comments-area .comment-reply-link, .comments-area #commentsubmit .comment-reply-link {
   position: relative;
   top: -1px;
 }
 
-.label-default {
+.label-default, footer.entry-meta .cat-links a, footer.entry-meta .tags-links a {
   background-color: #999999;
 }
-.label-default[href]:hover, .label-default[href]:focus {
+.label-default[href]:hover, footer.entry-meta .cat-links a[href]:hover, footer.entry-meta .tags-links a[href]:hover, .label-default[href]:focus, footer.entry-meta .cat-links a[href]:focus, footer.entry-meta .tags-links a[href]:focus {
   background-color: gray;
 }
 
@@ -5072,10 +5072,10 @@ input[type="button"].btn-block {
   background-color: #3071a9;
 }
 
-.label-success, .comments-area .comment-reply-link {
+.label-success, footer.entry-meta .edit-link a, .comments-area .comment-reply-link {
   background-color: #5cb85c;
 }
-.label-success[href]:hover, .comments-area [href].comment-reply-link:hover, .label-success[href]:focus, .comments-area [href].comment-reply-link:focus {
+.label-success[href]:hover, footer.entry-meta .edit-link a[href]:hover, .comments-area [href].comment-reply-link:hover, .label-success[href]:focus, footer.entry-meta .edit-link a[href]:focus, .comments-area [href].comment-reply-link:focus {
   background-color: #449d44;
 }
 
@@ -5882,7 +5882,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
   border-bottom-color: #ebccd1;
 }
 
-.well {
+.well, footer.entry-meta {
   min-height: 20px;
   padding: 19px;
   margin-bottom: 20px;
@@ -5892,7 +5892,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
 }
-.well blockquote {
+.well blockquote, footer.entry-meta blockquote {
   border-color: #ddd;
   border-color: rgba(0, 0, 0, 0.15);
 }
@@ -5902,7 +5902,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
   border-radius: 3px;
 }
 
-.well-sm {
+.well-sm, footer.entry-meta {
   padding: 9px;
   border-radius: 0px;
 }
@@ -6797,11 +6797,32 @@ label {
   padding-top: 4%;
 }
 
+.site-main {
+  padding: 0 20px;
+}
+
+.blog .post {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+.blog .post:last-of-type {
+  border-bottom: none;
+}
+
 .entry-header .entry-title {
   font-family: "Roboto Condensed", sans-serif;
 }
 .entry-header .entry-meta p.meta-text {
   font-weight: 700;
+}
+
+footer.entry-meta .cat-links, footer.entry-meta .tags-links, footer.entry-meta .edit-link {
+  display: block;
+  margin-bottom: 10px;
+}
+footer.entry-meta .cat-links:last-child, footer.entry-meta .tags-links:last-child, footer.entry-meta .edit-link:last-child {
+  margin-bottom: 0;
 }
 
 .comments-area .comment-edit-link {

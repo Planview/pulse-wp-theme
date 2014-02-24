@@ -154,6 +154,10 @@ label {
 }
 
 //  Posts
+.site-main {padding: 0 20px;}
+.blog .post { padding-bottom: 20px; border-bottom: 1px solid #ddd; margin-bottom: 20px; &:last-of-type { border-bottom: none; }}
+
+
 .entry-header {
   @extend .page-header;
   .entry-title {
@@ -179,6 +183,14 @@ label {
   .comments-link a {
     @extend .label, .label-primary;
   }
+}
+footer.entry-meta {
+  @extend .well, .well-sm;
+  .cat-links, .tags-links, .edit-link {display: block; margin-bottom: 10px; &:last-child {margin-bottom: 0;}}
+  .edit-link a {@extend .label, .label-success;}
+  .cat-links a {@extend .label, .label-default;}
+  .tags-links a {@extend .label, .label-default;}
+
 }
 
 
