@@ -157,6 +157,31 @@ label {
 }
 
 
+// Comments
+.comments-area {
+  .comment-meta {@extend .media-heading;}
+  .comment-avatar {@extend .pull-left;}
+  .comment-body {@extend .media-body;}
+  ul {@extend .media-list;}
+  li {@extend .media;}
+  .comment-edit-link {@extend .label, .label-warning; margin-left: 5px;}
+  .reply {margin-bottom: 10px;}
+  .comment-reply-link {@extend .label, .label-success; margin-left: 5px;}
+}
+#commentform {
+//  @extend .form-horizontal;
+}
+.comment-form-comment, .comment-form-author, .comment-form-email, .comment-form-url {
+  @extend .form-group;
+//  label {@extend .col-sm-2;}
+//  .input-wrapper { @extend .col-sm-10; }
+  input, textarea { @extend .form-control; }
+  .required { @extend .text-danger; }
+}
+#commentsubmit {
+  @extend .btn, .btn-lg, .btn-primary; //.col-sm-offset-2;
+}
+
 //  Paging
 .paging-navigation, .post-navigation {
   ul.nav-links {

@@ -48,7 +48,7 @@ if ( post_password_required() ) {
 				 * define product_pulse_comment() and that will be used instead.
 				 * See product_pulse_comment() in inc/template-tags.php for more.
 				 */
-				wp_list_comments( array( 'callback' => 'product_pulse_comment' ) );
+				wp_list_comments( array( 'callback' => 'product_pulse_comment', 'end-callback' => 'product_pulse_end_comment' ) );
 			?>
 		</ul><!-- .comment-list -->
 
@@ -69,6 +69,42 @@ if ( post_password_required() ) {
 		<p class="no-comments"><?php _e( 'Comments are closed.', 'product-pulse' ); ?></p>
 	<?php endif; ?>
 
-	<?php comment_form(); ?>
+	<?php comment_form(array(
+        'id_submit'         => 'commentsubmit',
+        'title_reply'       => __( 'Post a Comment' ),
+        'title_reply_to'    => __( 'Post a Comment to %s' ),
+        'cancel_reply_link' => __( 'Cancel Comment' ),
+        'label_submit'      => __( 'Submit Comment' ),
+
+        'comment_field' =>  '<div class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) .
+            '</label><div class="input-wrapper"><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true">' .
+            '</textarea></div></div>',
+
+        'comment_notes_before' => '<p class="comment-notes">' .
+            __( 'Your email address will not be published.' ) . ( $req ? $required_text : '' ) .
+            '</p>',
+
+        'comment_notes_after' => '',
+
+        'fields' => apply_filters( 'comment_form_default_fields', array(
+
+                'author' =>
+                    '<div class="comment-form-author">' .
+                    '<label for="author">' . __( 'Name', 'domainreference' ) .
+                    ( $req ? '<span class="required">*</span>' : '' ) . '</label> ' .
+                    '<div class="input-wrapper"><input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
+                    '" size="30"' . $aria_req . ' /></div></div>',
+
+                'email' =>
+                    '<div class="comment-form-email"><label for="email">' . __( 'Email', 'domainreference' ) .
+                    ( $req ? '<span class="required">*</span>' : '' ) . '</label> ' .
+                    '<div class="input-wrapper"><input id="email" name="email" type="email" value="' . esc_attr(  $commenter['comment_author_email'] ) .
+                    '" size="30"' . $aria_req . ' /></div></div>',
+
+                'url' =>
+                    ''
+            )
+        ),
+    )); ?>
 
 </div><!-- #comments -->

@@ -84,25 +84,26 @@ function product_pulse_comment( $comment, $args, $depth ) {
 	<?php else : ?>
 
 	<li id="comment-<?php comment_ID(); ?>" <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?>>
+        <div class="comment-avatar"><?php echo get_avatar($comment, 48); ?></div>
 		<article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
-			<footer class="comment-meta">
-				<div class="comment-author vcard">
-					<h4><?php printf( '<cite class="fn">%s</cite>', get_comment_author() ); ?></h4>
-				</div><!-- .comment-author -->
+			<header class="comment-meta"><h4>
+				<span class="comment-author vcard">
+					<?php printf( '<cite class="fn">%s</cite>', get_comment_author() ); ?>
+				</span><!-- .comment-author -->
 
-				<div class="comment-metadata">
+				<small class="comment-metadata"><span class="separator"> / </span>
 					<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
 						<time datetime="<?php comment_time( 'c' ); ?>">
 							<?php printf( _x( '%1$s at %2$s', '1: date, 2: time', 'product-pulse' ), get_comment_date(), get_comment_time() ); ?>
 						</time>
 					</a>
 					<?php edit_comment_link( __( 'Edit', 'product-pulse' ), '<span class="edit-link">', '</span>' ); ?>
-				</div><!-- .comment-metadata -->
+				</small><!-- .comment-metadata --></h4>
+			</header><!-- .comment-meta -->
 
-				<?php if ( '0' == $comment->comment_approved ) : ?>
-				<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'product-pulse' ); ?></p>
-				<?php endif; ?>
-			</footer><!-- .comment-meta -->
+        <?php if ( '0' == $comment->comment_approved ) : ?>
+            <p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'product-pulse' ); ?></p>
+        <?php endif; ?>
 
 			<div class="comment-content">
 				<?php comment_text(); ?>
@@ -117,12 +118,20 @@ function product_pulse_comment( $comment, $args, $depth ) {
 					'after'     => '</div>',
 				) ) );
 			?>
-		</article><!-- .comment-body -->
 
 	<?php
 	endif;
 }
 endif; // ends check for product_pulse_comment()
+
+if ( ! function_exists( 'product_pulse_end_comment') ) :
+
+function product_pulse_end_comment () {
+    ?>
+    </article></li>
+    <?php
+}
+endif;
 
 if ( ! function_exists( 'product_pulse_posted_on' ) ) :
     /**
