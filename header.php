@@ -22,10 +22,12 @@
 <div id="page" class="hfeed site">
 	<?php do_action( 'before' ); ?>
 	<header id="masthead" class="site-header" role="banner">
-        <div class="site-header-inner">
-            <div class="site-branding">
-                <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-                <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+        <div class="info-bar">
+            <div class="site-header-inner">
+                <div class="site-branding">
+                    <div class="site-title-wrap"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><h1 class="site-title"><?php bloginfo( 'name' ); ?></h1></a></div>
+                    <div class="site-title-wrap"><h2 class="site-description"><?php bloginfo( 'description' ); ?></h2></div>
+                </div>
             </div>
         </div>
 	</header><!-- #masthead -->

@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:700italic,700);
+@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans:400,700,400italic,700italic|Roboto+Condensed:700italic,700&subset=latin-ext,latin);
 
 @import "variables";
 @import "../vendor/bootstrap-sass/stylesheets/bootstrap";
@@ -15,14 +15,20 @@ label {
 // Site Header
 .site-header {
   background-color: black;
+  background-image: url('../img/bg-header-product-pulse-1158x154.png');
+  background-size: cover;
+  background-position: center center;
   color: white;
-  padding-top: 40px;
-  @media screen and (min-width: $screen-sm-min) {
-    position: absolute;
-    width: 100%;
-    height: 140px;
-    z-index: $zindex-navbar-fixed;
-  }
+  padding-top: 80px;
+//  @media screen and (min-width: $screen-sm-min) {
+//    position: absolute;
+//    width: 100%;
+//    z-index: $zindex-navbar-fixed;
+//  }
+//  @include box-shadow(0 5px 10px rgba(0,0,0,0.4));
+}
+.info-bar {
+  background-color: rgba(0,0,0,0.6);
 }
 .site-header-inner {
   @extend .container;
@@ -30,14 +36,27 @@ label {
 .site-branding {
   @extend .row;
 }
-.site-title, .site-description {
-  @extend .col-sm-6;
+.site-title {
+  padding-top: 17%;
+  @media screen and (min-width: $screen-sm-min) {
+    padding-top: 14%;
+  }
+  background-image: url('../img/title-the-product-pulse-465x69.png');
+  background-position: bottom left;
 }
 .site-description {
-  color: inherit;
-  @media screen and (min-width: $screen-sm-min) {
-    padding-top: 2.8%;
-  }
+  padding-top: 14%;
+  background-image: url('../img/title-for-innovation-495x69.png');
+  background-position: bottom right;
+}
+.site-title, .site-description {
+  @extend .text-hide;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 0;
+}
+.site-title-wrap {
+  @extend .col-sm-6;
 }
 
 
@@ -45,13 +64,14 @@ label {
 .site-content-wrapper {
   @extend .container;
   background-color: white;
-  @media screen and (min-width: $screen-sm-min) {
-    padding-top: 140px;
-  }
+//  @media screen and (min-width: $screen-sm-min) {
+//    padding-top: 160px;
+//  }
 }
 .site-content {
   @extend .row;
   padding-top: 10px;
+  padding-bottom: 40px;
 }
 .content-area {
   @extend .col-md-9;
@@ -124,6 +144,7 @@ label {
   @extend .col-sm-6;
   ul {
     @extend .list-unstyled;
+    a {color: white;}
   }
 }
 .planview-brand {
@@ -135,6 +156,9 @@ label {
 //  Posts
 .entry-header {
   @extend .page-header;
+  .entry-title {
+    font-family: $blog-title-font-family;
+  }
   .entry-meta {
     @extend .media;
     img.avatar {
@@ -142,6 +166,7 @@ label {
     }
     p.meta-text {
       @extend .media-body;
+      font-weight: 700;
     }
     .updated {
       @extend .hidden;
