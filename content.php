@@ -13,7 +13,7 @@
             <?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
                 <span class="comments-link"><?php comments_popup_link( __( '<span class="glyphicon glyphicon-comment"></span> 0', 'product-pulse' ), __( '<span class="glyphicon glyphicon-comment"></span> 1', 'product-pulse' ), __( '<span class="glyphicon glyphicon-comment"></span> %', 'product-pulse' ) ); ?></span>
             <?php endif; ?>
-            <a class="addthis_button_compact label label-warning" addthis:url="<?php the_permalink(); ?>" addthis:title="<?php echo esc_attr(get_the_title()); ?>"><span class=""><span class="glyphicon glyphicon-plus"></span> Share</span></a>
+            <a class="addthis_button_compact label label-warning" addthis:url="<?php the_permalink(); ?>" addthis:title="<?php echo esc_attr(get_the_title()); ?>"><span class=""><span class="glyphicon glyphicon-plus"></span> <?php _e('Share', 'product-pulse'); ?></span></a>
         </div>
 		<?php if ( 'post' == get_post_type() ) : ?>
 		<div class="entry-meta">

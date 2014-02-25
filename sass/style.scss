@@ -3,11 +3,6 @@
 @import "variables";
 @import "../vendor/bootstrap-sass/stylesheets/bootstrap";
 
-label {
-  font-family: $headings-font-family;
-  color: $gray;
-}
-
 .screen-reader-text {
   @extend .sr-only;
 }
@@ -162,11 +157,11 @@ label {
 .blog .post { padding-bottom: 20px; border-bottom: 1px solid #ddd; margin-bottom: 20px; &:last-of-type { border-bottom: none; }}
 
 
+.entry-title, .page-title, .comments-title, .comment-reply-title {
+  font-family: $blog-title-font-family;
+}
 .entry-header {
   @extend .page-header;
-  .entry-title {
-    font-family: $blog-title-font-family;
-  }
   .entry-meta {
     @extend .media;
     img.avatar {
@@ -221,6 +216,9 @@ footer.entry-meta {
 }
 #commentsubmit {
   @extend .btn, .btn-lg, .btn-primary; //.col-sm-offset-2;
+}
+.comment-awaiting-moderation{
+  @extend .alert, .alert-info;
 }
 
 //  Paging

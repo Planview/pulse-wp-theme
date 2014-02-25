@@ -71,17 +71,17 @@ if ( post_password_required() ) {
 
 	<?php comment_form(array(
         'id_submit'         => 'commentsubmit',
-        'title_reply'       => __( 'Post a Comment' ),
-        'title_reply_to'    => __( 'Post a Comment to %s' ),
-        'cancel_reply_link' => __( 'Cancel Comment' ),
-        'label_submit'      => __( 'Submit Comment' ),
+        'title_reply'       => __( 'Post a Comment', 'product-pulse' ),
+        'title_reply_to'    => __( 'Post a Comment to %s', 'product-pulse' ),
+        'cancel_reply_link' => __( 'Cancel Comment', 'product-pulse' ),
+        'label_submit'      => __( 'Submit Comment', 'product-pulse' ),
 
-        'comment_field' =>  '<div class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) .
+        'comment_field' =>  '<div class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun', 'product-pulse' ) .
             '</label><div class="input-wrapper"><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true">' .
             '</textarea></div></div>',
 
         'comment_notes_before' => '<p class="comment-notes">' .
-            __( 'Your email address will not be published.' ) . ( $req ? $required_text : '' ) .
+            __( 'Your email address will not be published.', 'product-pulse' ) . ( $req ? $required_text : '' ) .
             '</p>',
 
         'comment_notes_after' => '',
@@ -90,13 +90,13 @@ if ( post_password_required() ) {
 
                 'author' =>
                     '<div class="comment-form-author">' .
-                    '<label for="author">' . __( 'Name', 'domainreference' ) .
+                    '<label for="author">' . __( 'Name', 'product-pulse' ) .
                     ( $req ? '<span class="required">*</span>' : '' ) . '</label> ' .
                     '<div class="input-wrapper"><input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
                     '" size="30"' . $aria_req . ' /></div></div>',
 
                 'email' =>
-                    '<div class="comment-form-email"><label for="email">' . __( 'Email', 'domainreference' ) .
+                    '<div class="comment-form-email"><label for="email">' . __( 'Email', 'product-pulse' ) .
                     ( $req ? '<span class="required">*</span>' : '' ) . '</label> ' .
                     '<div class="input-wrapper"><input id="email" name="email" type="email" value="' . esc_attr(  $commenter['comment_author_email'] ) .
                     '" size="30"' . $aria_req . ' /></div></div>',
