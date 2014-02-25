@@ -149,10 +149,14 @@ label {
 }
 .planview-brand {
   text-align: right;
-  padding-top: 4%;
   @extend .col-sm-6;
 }
-
+.copyright {
+  padding-top: 50px;
+  background-image: url('../img/logo-planview-white.png');
+  background-position: top right;
+  background-repeat: no-repeat;
+}
 //  Posts
 .site-main {padding: 0 20px;}
 .blog .post { padding-bottom: 20px; border-bottom: 1px solid #ddd; margin-bottom: 20px; &:last-of-type { border-bottom: none; }}
