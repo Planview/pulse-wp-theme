@@ -88,7 +88,7 @@ function product_pulse_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-    wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/vendor/js/moderinizr.min.js', array(), '', false );
+    wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/vendor/js/modernizr.min.js', array(), '', false );
 
     wp_register_script( 'webshim', get_template_directory_uri() . '/vendor/webshim/js-webshim/minified/polyfiller.js', array('jquery', 'modernizr'), '', true );
 
