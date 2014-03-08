@@ -2,7 +2,11 @@
  * Created by scrockett on 2/4/14.
  */
 jQuery.webshims.polyfill();
-//jQuery(document).ready(function ($) {
-//    $('.site-title').fitText(0.75);
-//    $('.site-description').fitText(1.57);
-//});
+jQuery.ajax({
+    url: '//munchkin.marketo.net/munchkin.js',
+    dataType: 'script',
+    cache: true,
+    success: function() {
+    Munchkin.init('587-QLI-337');
+    }
+});
