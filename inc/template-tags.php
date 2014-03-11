@@ -21,17 +21,17 @@ function product_pulse_paging_nav() {
 	?>
 	<nav class="navigation paging-navigation" role="navigation">
 		<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'product-pulse' ); ?></h1>
-		<div class="nav-links">
+		<ul class="nav-links">
 
 			<?php if ( get_next_posts_link() ) : ?>
-			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'product-pulse' ) ); ?></div>
+			<li class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav"></span> Older posts', 'product-pulse' ) ); ?></li>
 			<?php endif; ?>
 
 			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'product-pulse' ) ); ?></div>
+			<li class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav"></span>', 'product-pulse' ) ); ?></li>
 			<?php endif; ?>
 
-		</div><!-- .nav-links -->
+		</ul><!-- .nav-links -->
 	</nav><!-- .navigation -->
 	<?php
 }
@@ -54,12 +54,12 @@ function product_pulse_post_nav() {
 	?>
 	<nav class="navigation post-navigation" role="navigation">
 		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'product-pulse' ); ?></h1>
-		<div class="nav-links">
+		<ul class="nav-links">
 
-			<?php previous_post_link( '%link', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'product-pulse' ) ); ?>
-			<?php next_post_link(     '%link', _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link',     'product-pulse' ) ); ?>
+            <li class="nav-previous"><?php previous_post_link( '%link', _x( '<span class="meta-nav"></span> %title', 'Previous post link', 'product-pulse' ) ); ?></li>
+            <li class="nav-next"><?php next_post_link(     '%link', _x( '%title <span class="meta-nav"></span>', 'Next post link',     'product-pulse' ) ); ?></li>
 
-		</div><!-- .nav-links -->
+		</ul><!-- .nav-links -->
 	</nav><!-- .navigation -->
 	<?php
 }
@@ -84,26 +84,26 @@ function product_pulse_comment( $comment, $args, $depth ) {
 	<?php else : ?>
 
 	<li id="comment-<?php comment_ID(); ?>" <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?>>
+        <div class="comment-avatar"><?php echo get_avatar($comment, 48); ?></div>
 		<article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
-			<footer class="comment-meta">
-				<div class="comment-author vcard">
-					<?php if ( 0 != $args['avatar_size'] ) { echo get_avatar( $comment, $args['avatar_size'] ); } ?>
-					<?php printf( __( '%s <span class="says">says:</span>', 'product-pulse' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
-				</div><!-- .comment-author -->
+			<header class="comment-meta"><h4>
+				<span class="comment-author vcard">
+					<?php printf( '<cite class="fn">%s</cite>', get_comment_author() ); ?>
+				</span><!-- .comment-author -->
 
-				<div class="comment-metadata">
+				<small class="comment-metadata"><span class="separator"> / </span>
 					<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
 						<time datetime="<?php comment_time( 'c' ); ?>">
 							<?php printf( _x( '%1$s at %2$s', '1: date, 2: time', 'product-pulse' ), get_comment_date(), get_comment_time() ); ?>
 						</time>
 					</a>
 					<?php edit_comment_link( __( 'Edit', 'product-pulse' ), '<span class="edit-link">', '</span>' ); ?>
-				</div><!-- .comment-metadata -->
+				</small><!-- .comment-metadata --></h4>
+			</header><!-- .comment-meta -->
 
-				<?php if ( '0' == $comment->comment_approved ) : ?>
-				<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'product-pulse' ); ?></p>
-				<?php endif; ?>
-			</footer><!-- .comment-meta -->
+        <?php if ( '0' == $comment->comment_approved ) : ?>
+            <p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'product-pulse' ); ?></p>
+        <?php endif; ?>
 
 			<div class="comment-content">
 				<?php comment_text(); ?>
@@ -118,41 +118,58 @@ function product_pulse_comment( $comment, $args, $depth ) {
 					'after'     => '</div>',
 				) ) );
 			?>
-		</article><!-- .comment-body -->
 
 	<?php
 	endif;
 }
 endif; // ends check for product_pulse_comment()
 
-if ( ! function_exists( 'product_pulse_posted_on' ) ) :
-/**
- * Prints HTML with meta information for the current post-date/time and author.
- */
-function product_pulse_posted_on() {
-	$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
-	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-		$time_string .= '<time class="updated" datetime="%3$s">%4$s</time>';
-	}
+if ( ! function_exists( 'product_pulse_end_comment') ) :
 
-	$time_string = sprintf( $time_string,
-		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date() ),
-		esc_attr( get_the_modified_date( 'c' ) ),
-		esc_html( get_the_modified_date() )
-	);
-
-	printf( __( '<span class="posted-on">Posted on %1$s</span><span class="byline"> by %2$s</span>', 'product-pulse' ),
-		sprintf( '<a href="%1$s" rel="bookmark">%2$s</a>',
-			esc_url( get_permalink() ),
-			$time_string
-		),
-		sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s">%2$s</a></span>',
-			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-			esc_html( get_the_author() )
-		)
-	);
+function product_pulse_end_comment () {
+    ?>
+    </article></li>
+    <?php
 }
+endif;
+
+if ( ! function_exists( 'product_pulse_posted_on' ) ) :
+    /**
+     * Prints HTML with meta information for the current post-date/time and author.
+     */
+    function product_pulse_posted_on() {
+        $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
+
+        $time_string = sprintf( $time_string,
+            esc_attr( get_the_date( 'c' ) ),
+            esc_html( get_the_date() )
+        );
+
+        printf( __( '<p class="meta-text"><span class="byline">By %2$s</span><span class="separator"> / </span><span class="posted-on">%1$s</span></p>', 'product-pulse' ),
+            sprintf( '<a href="%1$s" rel="bookmark">%2$s</a>',
+                esc_url( get_permalink() ),
+                $time_string
+            ),
+            sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s">%2$s</a></span>',
+                esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+                esc_html( get_the_author() )
+            )
+        );
+    }
+endif;
+
+if ( ! function_exists( 'product_pulse_author_thumb' ) ) :
+    /**
+     * Prints HTML of author avatar with link to archive.
+     */
+    function product_pulse_author_thumb( $class ) {
+        printf(
+            '<a href="%1$s" class="author-thumb%2$s">%3$s</a>',
+            esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+            ( !empty($class) ? esc_attr( ' ' . $class ) : '' ),
+            get_avatar( get_the_author_meta( 'ID' ), 24, null, get_the_author_meta( 'display_name' ) )
+        );
+    }
 endif;
 
 /**

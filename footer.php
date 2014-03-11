@@ -9,14 +9,19 @@
 ?>
 
 	</div><!-- #content -->
+    </div><!-- .site-content-wrapper -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<?php do_action( 'product_pulse_credits' ); ?>
-			<a href="http://wordpress.org/" rel="generator"><?php printf( __( 'Proudly powered by %s', 'product-pulse' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( __( 'Theme: %1$s by %2$s.', 'product-pulse' ), 'Product Pulse', '<a href="http://www.planview.com" rel="designer">Planview WCS</a>' ); ?>
-		</div><!-- .site-info -->
+        <div class="footer-inner">
+            <div class="site-info">
+                <nav class="blog-links">
+                    <?php wp_nav_menu(); ?>
+                </nav>
+                <div class="planview-brand">
+                    <p class="copyright"><?php printf(__('Copyright &copy; %s Planview, Inc., All rights reserved', 'product-pulse'), date('Y')); ?></p>
+                </div>
+            </div><!-- .site-info -->
+        </div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

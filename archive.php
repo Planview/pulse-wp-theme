@@ -33,7 +33,8 @@ get_header(); ?>
 							 * rewind the loop back to the beginning that way
 							 * we can run the loop properly, in full.
 							 */
-							rewind_posts();
+                            $pulse_archive_author = get_the_author_meta('ID');
+                            rewind_posts();
 
 						elseif ( is_day() ) :
 							printf( __( 'Day: %s', 'product-pulse' ), '<span>' . get_the_date() . '</span>' );
@@ -85,6 +86,18 @@ get_header(); ?>
 					endif;
 				?>
 			</header><!-- .page-header -->
+
+            <?php if (is_author() && (get_query_var('page') < 2 && get_query_var('paged') < 2)) : ?>
+            <div class="well">
+                <div class="pull-left" style="padding: 0 20px 20px 0">
+                    <?php echo get_avatar($pulse_archive_author, 150, '', get_the_author_meta('display_name')) ?>
+                </div>
+                <?php the_field('user_bio', "user_{$pulse_archive_author}"); ?>
+                <?php if ($user_twitter = get_field('user_twitter', "user_{$pulse_archive_author}")) : ?>
+                    <p class="twitter"><a href="http://twitter.com/<?php echo $user_twitter; ?>">@<?php echo $user_twitter ?></a></p>
+                    <?php endif; ?>
+            </div>
+            <?php endif; ?>
 
 			<?php /* Start the Loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
