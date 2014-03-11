@@ -23,6 +23,7 @@
 //  @include box-shadow(0 5px 10px rgba(0,0,0,0.4));
 }
 .info-bar {
+  background-color: #000000;
   background-color: rgba(0,0,0,0.6);
 }
 .site-header-inner {
@@ -234,4 +235,33 @@ footer.entry-meta {
       .meta-nav {@extend .glyphicon, .glyphicon-chevron-right;}
     }
   }
+}
+
+
+// Default classes
+.alignnone, .aligncenter, .alignright, .alignleft {
+  margin-top: ($line-height-computed / 2);
+  margin-bottom: ($line-height-computed / 2);
+}
+
+.aligncenter {
+  @extend .center-block;
+}
+
+.alignright {
+  @extend .pull-right;
+  margin-left: ($line-height-computed / 2);
+}
+
+.alignleft {
+  @extend .pull-left;
+  margin-right: ($line-height-computed / 2);
+}
+
+.wp-caption {
+  @extend .thumbnail;
+}
+
+.wp-caption p.wp-caption-text {
+  @extend .caption;
 }

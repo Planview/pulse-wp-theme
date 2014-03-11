@@ -88,16 +88,20 @@ function product_pulse_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-    wp_register_script( 'fittext', get_template_directory_uri() . '/vendor/js/jquery.fittext.js', array('jquery'), '', true );
+    wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/vendor/js/modernizr.min.js', array(), '', false );
 
-    wp_enqueue_script( 'product-pulse', get_template_directory_uri() . '/js/min/product-pulse.min.js', array('jquery', 'fittext'));
+    wp_register_script( 'webshim', get_template_directory_uri() . '/vendor/webshim/js-webshim/minified/polyfiller.js', array('jquery', 'modernizr'), '', true );
+
+    wp_enqueue_script( 'product-pulse', get_template_directory_uri() . '/js/min/product-pulse.min.js', array('jquery', 'webshim'));
+
+    wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/min/bootstrap.min.js', array('jquery'));
 }
 add_action( 'wp_enqueue_scripts', 'product_pulse_scripts' );
 
 function portfolio_perspectives_bg_size () { ?>
 <!--[if lte IE 8]>
 <style>
-    body, .site-branding h1 { -ms-behavior: url('<?php echo get_template_directory_uri() . '/vendor/background-size-polyfill/backgroundsize.min.htc' ?>');}
+    .site-header, .site-branding h1, .site-branding h2, .bg-size { -ms-behavior: url('<?php echo get_template_directory_uri() . '/vendor/background-size-polyfill/backgroundsize.min.htc' ?>');}
 </style>
 <script type="text/javascript" src="<?php echo get_template_directory_uri() . '/vendor/respond/dest/respond.min.js' ?>"></script>
 <![endif]-->
