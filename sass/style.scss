@@ -274,22 +274,23 @@ footer.entry-meta {
 }
 
 
+
+.aligncenter {
+  @extend .center-block;
+}
+.alignright {
+  @extend .pull-right;
+  margin-left: ($line-height-computed / 2);
+}
+.alignleft {
+  @extend .pull-left;
+  margin-right: ($line-height-computed / 2);
+}
 // Default classes
 .entry-content {
   .alignnone, .aligncenter, .alignright, .alignleft {
     margin-top: ($line-height-computed / 2);
     margin-bottom: ($line-height-computed / 2);
-  }
-  .aligncenter {
-    @extend .center-block;
-  }
-  .alignright {
-    @extend .pull-right;
-    margin-left: ($line-height-computed / 2);
-  }
-  .alignleft {
-    @extend .pull-left;
-    margin-right: ($line-height-computed / 2);
   }
   .wp-caption {
     @extend .thumbnail;
