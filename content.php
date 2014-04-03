@@ -39,30 +39,21 @@
 	</div><!-- .entry-content -->
 	<?php endif; ?>
 
-	<footer class="entry-meta">
-		<?php if ( 'post' == get_post_type() ) : // Hide category and tag text for pages on Search ?>
-			<?php
-				/* translators: used between list items, there is a space after the comma */
-				$categories_list = get_the_category_list( __( ' ', 'product-pulse' ) );
-				if ( $categories_list && product_pulse_categorized_blog() ) :
-			?>
-			<span class="cat-links">
-				<?php printf( __( 'Posted in %1$s', 'product-pulse' ), $categories_list ); ?>
-			</span>
-			<?php endif; // End if categories ?>
 
 			<?php
 				/* translators: used between list items, there is a space after the comma */
 				$tags_list = get_the_tag_list( '', __( ' ', 'product-pulse' ) );
-				if ( $tags_list ) :
+				if ( $tags_list || is_user_logged_in() ) :
 			?>
-			<span class="tags-links">
-				<?php printf( __( 'Tagged %1$s', 'product-pulse' ), $tags_list ); ?>
-			</span>
-			<?php endif; // End if $tags_list ?>
+			<footer class="entry-meta">
+				<?php if ( 'post' == get_post_type() && $tags_list) : ?>
+					<span class="tags-links">
+						<?php printf( __( 'Tagged %1$s', 'product-pulse' ), $tags_list ); ?>
+					</span>
+				<?php endif; // End if $tags_list ?>
+
+				<?php edit_post_link( __( 'Edit', 'product-pulse' ), '<span class="edit-link">', '</span>' ); ?>
+			</footer><!-- .entry-meta -->
 		<?php endif; // End if 'post' == get_post_type() ?>
 
-
-		<?php edit_post_link( __( 'Edit', 'product-pulse' ), '<span class="edit-link">', '</span>' ); ?>
-	</footer><!-- .entry-meta -->
 </article><!-- #post-## -->
