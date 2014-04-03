@@ -160,6 +160,16 @@
 
 .entry-title, .page-title, .comments-title, .comment-reply-title {
   font-family: $blog-title-font-family;
+  .subtitle {
+    @extend .small;
+    display: block;
+    color: $gray;
+    font: {
+      size: 65%;
+      style: italic;
+      weight: 400;
+    }
+  }
 }
 .entry-header {
   @extend .page-header;

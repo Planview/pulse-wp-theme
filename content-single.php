@@ -6,7 +6,10 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<h1 class="entry-title"><?php the_title(); ?></h1>
+		<h1 class="entry-title"><?php the_title(); ?><?php if (get_field('subtitle')) {
+			printf('<span class="subtitle">%s</h2>', get_field('subtitle'));
+			} ?></h1>
+		
         <div class="entry-actions">
             <a class="addthis_button_compact label label-warning" addthis:url="<?php the_permalink(); ?>" addthis:title="<?php echo esc_attr(get_the_title()); ?>"><span class=""><span class="glyphicon glyphicon-plus"></span> <?php _e('Share', 'product-pulse'); ?></span></a>
         </div>
