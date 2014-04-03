@@ -173,6 +173,9 @@
 }
 .entry-header {
   @extend .page-header;
+  margin: {
+    bottom: 5px;
+  }
   .entry-meta {
     @extend .media;
     img.avatar {
