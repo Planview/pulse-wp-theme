@@ -160,9 +160,22 @@
 
 .entry-title, .page-title, .comments-title, .comment-reply-title {
   font-family: $blog-title-font-family;
+  .subtitle {
+    @extend .small;
+    display: block;
+    color: $gray;
+    font: {
+      size: 65%;
+      style: italic;
+      weight: 400;
+    }
+  }
 }
 .entry-header {
   @extend .page-header;
+  margin: {
+    bottom: 5px;
+  }
   .entry-meta {
     @extend .media;
     img.avatar {
@@ -171,6 +184,15 @@
     p.meta-text {
       @extend .media-body;
       font-weight: 700;
+      margin: {
+        top: 0;
+        bottom: 0;
+      }
+      @media screen and (min-width: $screen-sm-min) {
+        margin: {
+          top: 24px;
+        }
+      }
     }
     .updated {
       @extend .hidden;
@@ -180,16 +202,30 @@
 
 .entry-actions {
   @extend .pull-right;
+  margin: {
+    top: 26px;
+    right: 5px;
+    bottom: 0;
+  }
   .comments-link a {
     @extend .label, .label-primary;
   }
 }
 footer.entry-meta {
-  @extend .well, .well-sm;
+  margin: {
+    top: 10px;
+    bottom: 30px;
+  }
+  padding: {
+    top: 10px;
+  }
+  border: {
+    top: 1px solid $page-header-border-color;
+  }
   .cat-links, .tags-links, .edit-link {display: block; margin-bottom: 10px; &:last-child {margin-bottom: 0;}}
   .edit-link a {@extend .label, .label-success;}
   .cat-links a {@extend .label, .label-default;}
-  .tags-links a {@extend .label, .label-default;}
+  .tags-links a {@extend .label, .label-default; vertical-align: text-top;}
 
 }
 
@@ -238,22 +274,23 @@ footer.entry-meta {
 }
 
 
+
+.aligncenter {
+  @extend .center-block;
+}
+.alignright {
+  @extend .pull-right;
+  margin-left: ($line-height-computed / 2);
+}
+.alignleft {
+  @extend .pull-left;
+  margin-right: ($line-height-computed / 2);
+}
 // Default classes
 .entry-content {
   .alignnone, .aligncenter, .alignright, .alignleft {
     margin-top: ($line-height-computed / 2);
     margin-bottom: ($line-height-computed / 2);
-  }
-  .aligncenter {
-    @extend .center-block;
-  }
-  .alignright {
-    @extend .pull-right;
-    margin-left: ($line-height-computed / 2);
-  }
-  .alignleft {
-    @extend .pull-left;
-    margin-right: ($line-height-computed / 2);
   }
   .wp-caption {
     @extend .thumbnail;
