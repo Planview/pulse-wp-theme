@@ -167,7 +167,7 @@ if ( ! function_exists( 'product_pulse_author_thumb' ) ) :
             '<a href="%1$s" class="author-thumb%2$s">%3$s</a>',
             esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
             ( !empty($class) ? esc_attr( ' ' . $class ) : '' ),
-            get_avatar( get_the_author_meta( 'ID' ), 24, null, get_the_author_meta( 'display_name' ) )
+            get_avatar( get_the_author_meta( 'ID' ), 48, null, get_the_author_meta( 'display_name' ) )
         );
     }
 endif;
